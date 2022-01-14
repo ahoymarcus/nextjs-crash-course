@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 
 
 
-const fakeToken = 'dfsdlkekrekxkfjskfjsdkfjdfdfdf';
+const KEY = 'dfsdlkekrekxkfjskfjsdkfjdfdfdf';
 
 export default function(req: NextApiRequest, res: NextApiResponse) {
 	if (!req.body) {
@@ -21,7 +21,7 @@ export default function(req: NextApiRequest, res: NextApiResponse) {
 				username,
 				admin: username === 'admin' && password === 'admin'
 			},
-			fakeToken
+			KEY
 		)
 	});
 };

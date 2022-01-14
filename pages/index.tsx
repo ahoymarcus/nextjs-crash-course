@@ -1,5 +1,5 @@
 // https://www.youtube.com/watch?v=tt3PUvhOVzo
-//  1 hr  12'  00''
+//  1 hr  26'  40''
 import { useState } from 'react';
 import Head from 'next/head'
 import Image from 'next/image'
@@ -14,6 +14,7 @@ export default function Home() {
   const [ username, setUsername ] = useState<string>('');
 	const [ password, setPassword ] = useState<string>('');
 	const [ message, setMessage ] = useState<string>('You are not logged in');
+	const [ secret, setSecret ] = useState<strinng>('');
 	
 	
 	
@@ -37,6 +38,21 @@ export default function Home() {
 			console.log(json);
 			
 			setMessage(`Welcome ${json.username} and you are ${json.admin ? ' an admin!' : ' not an admin!'}`);
+			
+			const res = await fetch('/api/secret', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({ token })
+			}).then((t) => t.json());
+			
+			if (res.secretAdminCode) {
+				setSecret(res.secretAdminCode);
+			} else {
+				setSecret('Nothing available');
+			}
+			
 		} else {
 			setMessage('Something went wrong');
 		}
@@ -46,6 +62,7 @@ export default function Home() {
 	return (
    <div>
 		<h2>{message}</h2>
+		<h3>Secret: {secret}</h3>
 		<form>
 			<input 
 				type="text" 
