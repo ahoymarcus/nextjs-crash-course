@@ -21,6 +21,9 @@ Como parte do tutorial é estudado entre outros, sobre o tratamento do conteúdo
 Dependências:
 
 - Next-JS
+- SASS
+- TypeScript
+- JsonWebToken (JWT)
 
 
 
