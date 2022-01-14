@@ -1,8 +1,9 @@
 // https://www.youtube.com/watch?v=tt3PUvhOVzo
-//  1 hr  26'  40''
+//  1 hr  38'  00''
 import { useState } from 'react';
-import Head from 'next/head'
-import Image from 'next/image'
+import Head from 'next/head';
+import Image from 'next/image';
+import Link from 'next/link';
 import jwt from 'jsonwebtoken';
 
 // styles
@@ -61,6 +62,10 @@ export default function Home() {
 	
 	return (
    <div>
+		<Head>
+			<title>Next.js Crash Course</title>
+		</Head>
+		<h1>React-JS Form Style</h1>
 		<h2>{message}</h2>
 		<h3>Secret: {secret}</h3>
 		<form>
@@ -80,6 +85,9 @@ export default function Home() {
 			/>
 			<input type="button" value="Login" onClick={submitForm} />
 		</form>
+		<Link href="/html-forms/html-form-1">
+			<a>HTML Form Style Test link</a>
+		</Link>
 	 </div>
   )
 }
