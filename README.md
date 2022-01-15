@@ -1,9 +1,9 @@
-#  - Next.js and TypeScript
+# Next.js Crash Course - Next.js and TypeScript
  
 
 <br />
 
-Tutorial da Next.JS para criar uma apliação de teste para aprendizado do framework Next.js.:[^1]
+Curso do professor Mehul perpassando as principais funcionalidades do Next.js.:[^1]
 
 <br />
 
@@ -25,31 +25,6 @@ Dependências:
 - TypeScript
 - JsonWebToken (JWT)
 
-
-
-<br />
-
-
-### I:
-
-![Imagem do Blog com o seu conteúdo estático](/public/images/)
-
-
-<br />
-
-
-### I:
-
-![Imagem do Blog apresentando ao final uma lista com mensagens postadas](/public/images/)
-
-
-
-<br />
-
-
-### I:
-
-![Imagem do Blog apresentando uma página dinâmica de postagem](/public/images/)
 
 
 
