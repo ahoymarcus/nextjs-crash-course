@@ -14,7 +14,12 @@ export const getStaticProps: GetStaticProps = async (context) => {
 		'utf8'
 	);
 	
+	
+	/*
+		getStaticProps always runs at development, but at production it's possible to set a value as REVALIDATE to bring the server to try to reconstruct this page in intervals  for data that changes less frequently.....
+	*/
 	return {
+		revalidate: 10,
 		props: {
 			myFavNum: 4,
 			myWeirdRobot: txt

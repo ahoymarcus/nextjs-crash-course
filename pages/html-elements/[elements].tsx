@@ -53,6 +53,7 @@ const htmlElements = [
 ];
 const words = [...htmlElements, 'arm', 'leg', 'biceps', 'newspaper', 'log', 'directory', 'document', 'application', 'history', 'element', 'h7', 'weak'];
 
+
 export default function HtmlElements() {
 	const router = useRouter();
 	//console.log('router', router);
