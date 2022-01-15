@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 
 
@@ -14,28 +15,74 @@ const htmlElements = [
 	'script',
 	'style',
 	'body',
+	'div',
+	'ul',
+	'ol',
+	'li',
+	'select',
+	'option',
+	'input',
+	'area',
 	'header',
 	'main',
-	'footer'
+	'article',
+	'aside',
+	'nav',
+	'section',
+	'h1',
+	'h2',
+	'h3',
+	'h4',
+	'h5',
+	'h6',
+	'p',
+	'pre',
+	'hr',
+	'br',
+	'a',
+	'em',
+	'i',
+	'strong',
+	'img',
+	'audio',
+	'video',
+	'footer',
+	'svg',
+	'canvas',
+	'button'
 ];
-const words = [...htmlElements, 'arm', 'leg', 'biceps', 'newspaper', 'log', 'directory', 'document', 'application', 'history', 'element'];
+const words = [...htmlElements, 'arm', 'leg', 'biceps', 'newspaper', 'log', 'directory', 'document', 'application', 'history', 'element', 'h7', 'weak'];
 
 export default function HtmlElements() {
+	const router = useRouter();
+	//console.log('router', router);
+	
+	//let params = router.query.elements;
+	console.log('router params = ', router.query.elements);
+	
+	
+	const [ params, setParams ] = useState<string>('');
 	const [ input, setInput ] = useState<string>('');
 	const [ word, setWord ] = useState<string>('');
 	const [ isHtml, setIsHtml ] = useState<string>(null);
 	const [ guess, setGuess ] = useState<boolean>('');
 	
+	console.log('word = ', word);
+	//console.log('isHtml = ', isHtml);
 	
 	
-	
-	console.log('isHtml = ', isHtml);
 	
 	useEffect(() => {
+		if (router.query.elements && !words) {
+			
+			setWord(router.query.elements);
+			return;
+		} 
+		
 		const randomWord = words[Math.ceil(Math.random() * words.length -1)];
 		
 		setWord(randomWord);
-	}, [guess]);
+	}, [word, guess]);
 	
 	
 	const renderResult = () => {
