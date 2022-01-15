@@ -1,5 +1,5 @@
 // https://www.youtube.com/watch?v=tt3PUvhOVzo
-//  1 hr  38'  00''
+//  1 hr  45'  00''
 import { useState } from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -16,7 +16,10 @@ export default function Home() {
 	const [ password, setPassword ] = useState<string>('');
 	const [ message, setMessage ] = useState<string>('You are not logged in');
 	const [ secret, setSecret ] = useState<strinng>('');
+	const [ isHtmlElement, setIsHtmlElement ] = useState<string>('');
 	
+	
+	console.log(isHtmlElement);
 	
 	
 	async function submitForm() {
@@ -87,6 +90,17 @@ export default function Home() {
 		</form>
 		<Link href="/html-forms/html-form-1">
 			<a>HTML Form Style Test link</a>
+		</Link>
+		<h2>Let's play a Html game!</h2>
+		<h3>Test is a word represents a HTML Element</h3>
+		<input 
+			type="text"
+			value={isHtmlElement}
+			placeholder="test to see if it's a HTML element"
+			onChange={(e) => setIsHtmlElement(e.target.value)}
+		/>
+		<Link href={`/html-elements/${isHtmlElement}`}>
+			<a>{isHtmlElement}</a>
 		</Link>
 	 </div>
   )
